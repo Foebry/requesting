@@ -1,7 +1,7 @@
 import requests
 
 from requesting import issues
-from responses import handleResponse
+from requesting.responses import handleResponse
 
 
 def getAccessToken(endpoint, data, request_data):
