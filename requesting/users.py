@@ -1,6 +1,5 @@
 import requests
-
-from security import oauth
+#import security.oauth
 
 
 
@@ -19,16 +18,28 @@ class User:
         if type(endpoint) != str: raise TypeError("endpoint has to be a string.")
         self.endpoint = endpoint
         self.access_token = None
+        self.security = None
 
 
     def authenticate(self, data, endpoint, request_data=None):
-        if data['security'] == "oauth": self.access_token = oauth.getAccessToken(endpoint, data, request_data)
+        if data['security'] == "oauth":
+            self.access_token = oauth.getAccessToken(endpoint, data, request_data)
+            self.security = data["security"]
 
 
-user = User("")
+    def get(self, endpoint, request_data=None):
+        """
+            get api calls
 
-user.authenticate({'security':'oauth','grant_type':'client_credentials',
-                'client_id': "2d145be238fc4068a18cd9a2cb7473eb",
-                'client_secret': "m6eqhka7BWQxVJc9dYn2cO70zLYHE2uo"}, "https://us.battle.net/oauth/token", ("access_token",))
+            :param endpoint:
+        """
+        if self.user.security == "oauth": return oauth.get(endpoint, request_data)
 
-print(user.access_token)
+if __name__ == "__main__":
+    user = User("")
+
+    user.authenticate({'security':'oauth','grant_type':'client_credentials',
+                    'client_id': "2d145be238fc4068a18cd9a2cb7473eb",
+                    'client_secret': "m6eqhka7BWQxVJc9dYn2cO70zLYHE2uo"}, "https://us.battle.net/oauth/token", ("access_token",))
+
+    print(user.access_token)

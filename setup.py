@@ -8,7 +8,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 packages = ['requesting']
 
-requires = []
+requires = ["requests"]
 
 about = {}
 with open(os.path.join(here, 'requesting', '__version__.py'), 'r', 'utf-8') as f:
