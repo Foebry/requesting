@@ -37,4 +37,4 @@ def get(endpoint, request_data):
     except requests.exceptions.ConnectionError:
         return issues.reconnect(get, (endpoint, request_data))
 
-    return handleResponse(response, get, (endpoint, request_data, request_data))
+    return handleResponse(response, get, (endpoint, request_data), request_data)
