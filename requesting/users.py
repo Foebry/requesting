@@ -1,5 +1,6 @@
 import requests
-#import security.oauth
+
+from requesting.security import oauth
 
 
 
