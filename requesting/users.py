@@ -34,7 +34,7 @@ class User:
 
             :param endpoint:
         """
-        if self.user.security == "oauth": return oauth.get(endpoint, request_data)
+        if self.security == "oauth": return oauth.get(endpoint, request_data)
 
 if __name__ == "__main__":
     user = User("")
