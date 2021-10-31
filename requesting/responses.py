@@ -34,7 +34,7 @@ def handleResponse(response, func, args, keys):
         #return func(*args)
 
     else:
-        print("something unexpected went wrong.")
+        print("something unexpected went wrong.", response)
         #self.logger.log(msg=f'{response.status_code} - {response}')
 
 
