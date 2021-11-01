@@ -24,7 +24,7 @@ class User:
 
     def authenticate(self, data, endpoint, request_data=None):
         if data['security'] == "oauth":
-            self.access_token = oauth.getAccessToken(endpoint, data, request_data)
+            self.access_token = oauth.getAccessToken(endpoint, data["CREDENTIALS"], request_data)
             self.security = data["security"]
 
 
@@ -35,12 +35,3 @@ class User:
             :param endpoint:
         """
         if self.security == "oauth": return oauth.get(endpoint, request_data)
-
-if __name__ == "__main__":
-    user = User("")
-
-    user.authenticate({'security':'oauth','grant_type':'client_credentials',
-                    'client_id': "2d145be238fc4068a18cd9a2cb7473eb",
-                    'client_secret': "m6eqhka7BWQxVJc9dYn2cO70zLYHE2uo"}, "https://us.battle.net/oauth/token", ("access_token",))
-
-    print(user.access_token)

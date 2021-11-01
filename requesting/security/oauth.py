@@ -31,7 +31,6 @@ def get(endpoint, request_data):
         :param endpoint: endpoint to send request to
         :type endpoint: string
     """
-
     try: response = requests.get(endpoint, request_data)
     except requests.exceptions.ConnectionError:
         return issues.reconnect(get, (endpoint, request_data))
