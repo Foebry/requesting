@@ -6,7 +6,7 @@ from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-packages = ['requesting', 'security']
+packages = ['requesting', 'requesting/security']
 
 requires = ["requests"]
 
@@ -28,8 +28,7 @@ setup(
     url=about['__url__'],
     packages=packages,
     package_data={'': ['LICENSE', 'NOTICE']},
-    package_dir={'requesting': 'requesting',
-                 'security':'requesting/security'},
+    package_dir={'requesting': 'requesting'},
     include_package_data=True,
     install_requires=requires,
     license=about['__license__'],
