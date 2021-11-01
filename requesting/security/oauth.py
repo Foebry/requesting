@@ -17,7 +17,6 @@ def getAccessToken(endpoint, data, request_data):
 
         return "USpQNKdGSbJCTmv5A1Niz6HxDxRBQQPvh0"
     """
-
     try: response = requests.post(endpoint, data=data)
     except requests.exceptions.ConnectionError:
         return issues.reconnect(getAccessToken, (data, request_data))

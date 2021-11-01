@@ -24,7 +24,6 @@ class User:
 
     def authenticate(self, data, endpoint, request_data=None):
         if data['security'] == "oauth":
-            data = {data["client_id"], data["client_secret"]}
             self.access_token = oauth.getAccessToken(endpoint, data, request_data)
             self.security = data["security"]
 
